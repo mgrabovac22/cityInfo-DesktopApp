@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Varaždinski_Gradski_Info.UserControls.UcHelp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="450" Width="650">
+    <Border Background="White" Padding="15" CornerRadius="10" BorderBrush="Gray" BorderThickness="1">
+        <Grid>
+            <StackPanel>
+                <TextBlock FontSize="20" FontWeight="Bold" Foreground="#2C3E50"
+                           Text="🛈 Dobrodošli u pomoćni centar" Margin="0,0,0,15"/>
+
+                <TextBlock FontSize="14" Foreground="#34495E"
+                           Text="Ovdje možete pronaći korisne informacije o korištenju aplikacije."
+                           Margin="0,0,0,15"/>
+
+                <Expander Header="🔹 Podnošenje problema (Tiketi)" IsExpanded="True">
+                    <TextBlock Text="Možete prijaviti problem putem sustava tiketa. Kliknite na 'Rješavanje tiketa' kako biste pregledali i upravljali njima."
+                               TextWrapping="Wrap" Margin="10"/>
+                </Expander>
+
+                <Expander Header="📌 Često postavljena pitanja (FAQ)">
+                    <TextBlock Text="U sekciji FAQ možete pronaći odgovore na najčešća pitanja o aplikaciji."
+                               TextWrapping="Wrap" Margin="10"/>
+                </Expander>
+
+                <Expander Header="📍 Komunalni servisi i karta">
+                    <TextBlock Text="Možete pregledati komunalne servise na interaktivnoj karti i pronaći najbliže servise u vašoj blizini."
+                               TextWrapping="Wrap" Margin="10"/>
+                </Expander>
+
+                <Expander Header="🏥 Zdravstvo">
+                    <TextBlock Text="Sekcija 'Zdravstvo' omogućuje pregled informacija o zdravstvenim ustanovama i uslugama."
+                               TextWrapping="Wrap" Margin="10"/>
+                </Expander>
+
+                <Expander Header="💬 Forum">
+                    <TextBlock Text="Forum omogućuje objavu prijedloga i raspravu o temama vezanim uz gradsku upravu."
+                               TextWrapping="Wrap" Margin="10"/>
+                </Expander>
+
+                <Expander Header="⚠️ Izvanredne situacije">
+                    <TextBlock Text="U slučaju hitnih situacija, možete prijaviti problem putem izvanredne sekcije."
+                               TextWrapping="Wrap" Margin="10"/>
+                </Expander>
+
+                <Button Content="✖ Zatvori" HorizontalAlignment="Right" Margin="10,20,10,0" Padding="8,5"
+                        Background="#E74C3C" Foreground="White" FontWeight="Bold"
+                        BorderThickness="0" Cursor="Hand"
+                        Click="CloseButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

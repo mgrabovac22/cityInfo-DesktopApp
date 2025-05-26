@@ -1,0 +1,73 @@
+﻿<Window x:Class="Varaždinski_Gradski_Info.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wpfAnimatedGif="clr-namespace:WpfAnimatedGif;assembly=WpfAnimatedGif"
+        Title="Varaždinski gradski info" WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize"
+        Background="White"
+        Width="450"
+        Height="900"
+        MinWidth="450" 
+        PreviewKeyDown="Window_PreviewKeyDown"
+        Icon="UserControls/Assets/window_icon.png"
+        MinHeight="900">
+    <ContentControl x:Name="main">
+
+
+        <Grid Margin="0,0,0,4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="72*"/>
+                <ColumnDefinition Width="288*"/>
+                <ColumnDefinition Width="91*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <DockPanel Grid.Row="0" Height="50" Background="#E3F2FD" Grid.ColumnSpan="3">
+                <Image  Width="25" Height="25" Margin="5" VerticalAlignment="Center" />
+            </DockPanel>
+
+            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="3" Margin="0,0,0,0">
+                <Border Width="400" Background="#E3F2FD" CornerRadius="10" Margin="0,10,0,-56">
+                    <StackPanel Margin="20">
+                        <Label Content="Registracija" FontSize="24" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" Margin="0,10,0,20" />
+
+                        <Label Content="Unesite ime:*" FontSize="16" Margin="0,0,0,5" />
+                        <TextBox Height="30" Margin="0,0,0,10" FontSize="14" x:Name="txtName"/>
+
+                        <Label Content="Unesite prezime:*" FontSize="16" Margin="0,0,0,5" />
+                        <TextBox Height="30" Margin="0,0,0,10" FontSize="14" x:Name="txtLastname" />
+
+                        <Label Content="Unesite email:*" FontSize="16" Margin="0,0,0,5" />
+                        <TextBox Height="30" Margin="0,0,0,10" FontSize="14" x:Name="txtEmail"/>
+
+                        <Label Content="Unesite broj telefona:" FontSize="16" Margin="0,0,0,5" />
+                        <TextBox Height="30" Margin="0,0,0,10" FontSize="14" x:Name="txtPhone"/>
+
+                        <Label Content="Unesite korisničko ime:*" FontSize="16" Margin="0,0,0,5" />
+                        <TextBox Height="30" Margin="0,0,0,10" FontSize="14" x:Name="txtUsername"/>
+
+                        <Label Content="Unesite lozinku:*" FontSize="16" Margin="0,0,0,5" />
+                        <PasswordBox Height="30" Margin="0,0,0,10" FontSize="14" x:Name="txtPassword"/>
+
+                        <Label Content="Lozinka još jedanput:*" FontSize="16" Margin="0,0,0,5" />
+                        <PasswordBox Height="30" Margin="0,0,0,20" FontSize="14"  x:Name="txtPasswordSec"/>
+
+                        <Button x:Name="btnRegister" Width="200" Height="45" Background="#90CAF9" Foreground="White" FontSize="16" HorizontalAlignment="Center" Margin="0,0,0,10" Click="Button_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Image x:Name="loadingGif" wpfAnimatedGif:ImageBehavior.AnimatedSource="usercontrols/assets/loadingGif.gif" Width="200" Height="20" Visibility="Collapsed" />
+                                <TextBlock x:Name="txtRegister" Text="Registriraj me" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                        <Label x:Name="lblError" Foreground="red" HorizontalAlignment="Center"></Label>
+
+                        <Label Content="Već imaš račun?" HorizontalAlignment="Center" FontSize="14" Margin="0,10,0,0" />
+                        <Label x:Name="PrijavaLabel" Content="Natrag na prijavu" HorizontalAlignment="Center" FontSize="14" Foreground="Blue" Cursor="Hand" MouseLeftButtonDown="PrijavaLabel_MouseLeftButtonDown" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </ContentControl>
+</Window>

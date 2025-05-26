@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="Varaždinski_Gradski_Info.UserControls.UcShowEmployees"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Varaždinski_Gradski_Info.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="SluzbeniciView" />
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10,10,10,5">
+            <TextBlock Text="Popis gradskih tijela" FontSize="16" FontWeight="Bold" Margin="0,0,10,0"/>
+
+            <ComboBox x:Name="cmbUserFilter" Width="150" Margin="10,0,0,0" SelectionChanged="cmbUserFilter_SelectionChanged">
+                <ComboBoxItem Content="Svi korisnici" Tag="All"/>
+                <ComboBoxItem Content="Admini" Tag="Admin"/>
+                <ComboBoxItem Content="Zaposlenici" Tag="Employee"/>
+                <ComboBoxItem Content="Građani" Tag="User"/>
+            </ComboBox>
+
+            <TextBox x:Name="txtSearch" Width="200" Margin="10,0,0,0" TextChanged="txtSearch_TextChanged"/>
+        </StackPanel>
+
+        <DataGrid x:Name="GradskaTijelaGrid" AutoGenerateColumns="False" Background="#E3F2FD" Grid.Row="1" Margin="10,0,10,10" VerticalAlignment="Stretch" SelectionChanged="GradskaTijelaGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Naziv institucije" Binding="{Binding InstitutionName}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Opis" Binding="{Binding Description}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Broj telefona" Binding="{Binding PhoneNumber}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Radni sati" Binding="{Binding WorkingHours}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Radni dani" Binding="{Binding DaysOnDuty}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Adresa" Binding="{Binding Address}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Tip institucije" Binding="{Binding InstitutionType}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2" Margin="10, 0, 5, 0">
+            <Button x:Name="btnRemoveInst" Content="Obriši" Width="100" Margin="5" Background="LightBlue" Visibility="Collapsed" Click="btnRemoveInst_Click"/>
+            <Button x:Name="btnUpdateInst" Content="Uredi" Width="100" Margin="5" Background="LightBlue" Visibility="Collapsed" Click="btnUpdateInst_Click"/>
+            <Button x:Name="btnAddInst" Content="Dodaj" Width="100" Margin="5" Background="LightBlue" Click="btnAddInst_Click"/>
+        </StackPanel>
+
+        <TextBlock Text="Popis službenika" FontSize="16" FontWeight="Bold" Margin="10,0,10,5" Grid.Row="3"/>
+
+        <DataGrid ItemsSource="{Binding Source={StaticResource SluzbeniciView}}" x:Name="SluzbeniciGrid" AutoGenerateColumns="False" Background="#E3F2FD" Grid.Row="4" Margin="10,0,10,10" VerticalAlignment="Stretch" SelectionChanged="SluzbeniciGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Korisničko ime" Binding="{Binding Username}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Ime" Binding="{Binding FirstName}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Prezime" Binding="{Binding LastName}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Adresa E-pošte" Binding="{Binding Email}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Tip korisnika" Binding="{Binding TypeName}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Naziv institucije" Binding="{Binding InstitutionName}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Broj telefona" Binding="{Binding PhoneNumber}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="5" Margin="10, 0, 5, 0">
+            <Button x:Name="btnRemoveEmp" Content="Obriši" Width="100" Margin="5" Background="LightBlue" Visibility="Collapsed" Click="btnRemoveEmp_Click"/>
+            <Button x:Name="btnUpdateEmp" Content="Uredi" Width="100" Margin="5" Background="LightBlue" Visibility="Collapsed" Click="btnUpdateEmp_Click"/>
+            <Button x:Name="btnAddEmp" Content="Dodaj" Width="100" Margin="5" Background="LightBlue" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

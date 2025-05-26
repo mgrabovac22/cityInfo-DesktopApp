@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="Varaždinski_Gradski_Info.UserControls.UcCommunalServices"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Varaždinski_Gradski_Info.UserControls"
+             xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <gmap:GMapControl x:Name="gmapControl"
+                          Zoom="12"
+                          MinZoom="1"
+                          MaxZoom="20"
+                          VerticalAlignment="Stretch"
+                          HorizontalAlignment="Stretch"
+                          Margin="5"
+                          MouseLeftButtonDown="GmapControl_MouseLeftButtonDown"
+                          Grid.Row="0" Grid.Column="0"/>
+
+        <TextBlock Text="Odaberite vašu ulicu na karti!"
+                   TextWrapping="Wrap"
+                   x:Name="lblInfo"
+                   FontSize="14"
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   Margin="0,20,0,10"
+                   Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+
+        <StackPanel x:Name="panelInputs" Orientation="Vertical" Visibility="Collapsed" Grid.Row="0" Grid.Column="1" Margin="10">
+            <TextBlock Text="Unesite podatke za odvoz smeća:" FontSize="14" FontWeight="Bold" Margin="0,10,0,5" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="Unesite vrijeme odvoza(npr. '(15:15 - 17:30)'):" FontSize="11" Margin="0,10,0,5" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtVrijeme" TabIndex="0" Margin="0,5" VerticalAlignment="Center" HorizontalAlignment="center" MinWidth="150" Height="30" />
+
+            <TextBlock Text="Odaberite vrste otpada:" FontSize="11" Margin="0,10,0,5" HorizontalAlignment="Center"/>
+            <ListBox x:Name="lstVrstaOtpada" Margin="0,5" VerticalAlignment="Center" TabIndex="1" HorizontalAlignment="center" MinWidth="150" Height="90" SelectionMode="Multiple">
+                <ListBoxItem Content="Plastični otpad" />
+                <ListBoxItem Content="Papir" />
+                <ListBoxItem Content="Stakleni otpad" />
+                <ListBoxItem Content="Bio otpad" />
+                <ListBoxItem Content="Ostali otpad" />
+            </ListBox>
+
+            <TextBlock Text="Odaberite dan odvoza:" FontSize="11" Margin="0,10,0,5" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="cmbDan" Margin="0,5" TabIndex="2" VerticalAlignment="Center" HorizontalAlignment="center" MinWidth="150" Height="30">
+                <ComboBoxItem Content="Ponedjeljak" />
+                <ComboBoxItem Content="Utorak" />
+                <ComboBoxItem Content="Srijedu" />
+                <ComboBoxItem Content="Četvrtak" />
+                <ComboBoxItem Content="Petak" />
+            </ComboBox>
+
+            <TextBlock x:Name="lblError" FontSize="11" Margin="0,10,0,5" HorizontalAlignment="Center" Foreground="Red"/>
+            <Button Content="Spremi" Margin="0,20,0,0" TabIndex="3" Click="BtnSpremi_Click" Background="LightBlue" VerticalAlignment="Center" HorizontalAlignment="center" MinWidth="70" Height="30"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

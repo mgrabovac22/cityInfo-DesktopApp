@@ -1,0 +1,32 @@
+<Window x:Class="Varaždinski_Gradski_Info.AdminMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Varaždinski_Gradski_Info"
+        mc:Ignorable="d"
+        Title="Varaždinski gradski info" Height="450" Width="800"
+        Icon="UserControls/Assets/window_icon.png"
+        MinHeight="450" MinWidth="1400" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown">
+    <Grid>
+        <DockPanel>
+            <StackPanel Background="#D3E3FD" Width="200" DockPanel.Dock="Left">
+                <TextBlock HorizontalAlignment="Center" Text="Odabir usluge" FontWeight="Bold" FontSize="16" Margin="10" />
+                <Button x:Name="BtnForum" HorizontalContentAlignment="Left" Content="Forumi" Margin="10, 0, 10, 2" Padding="10" Background="#D3E3FD" Click="BtnForum_Click"  />
+                <Button x:Name="BtnHealth" HorizontalContentAlignment="Left" Content="Zdravstvo" Margin="10, 0, 10, 2" Padding="10" Background="#D3E3FD" Click="BtnHealth_Click"  />
+                <Button x:Name="BtnCommunalServices" HorizontalContentAlignment="Left" Content="Komunalni servisi" Margin="10, 0, 10, 2" Padding="10" Background="#D3E3FD" Click="BtnCommunalServices_Click"  />
+                <Button x:Name="BtnFAQ" HorizontalContentAlignment="Left" Content="Često postavljena pitanja" Margin="10, 0, 10, 2" Padding="10" Background="#D3E3FD" Click="BtnFAQ_Click"  />
+                <Button x:Name="BtnTicket" HorizontalContentAlignment="Left" Content="Riješi problem" Margin="10, 0, 10, 2" Padding="10" Background="#D3E3FD" Click="BtnTicket_Click"  />
+                <Button x:Name="BtnEmergencies" HorizontalContentAlignment="Left" Content="Izvanredne situacije" Margin="10, 0, 10, 2" Padding="10" Background="#D3E3FD" Click="BtnEmergencies_Click"  />
+                <Button x:Name="BtnMenageEmp" HorizontalContentAlignment="Left" Content="Upravljanje službenicima" Margin="10, 0, 10, 2" Padding="10" Background="#D3E3FD" Click="BtnMenageEmp_Click"  />
+                <TextBlock x:Name="TxtLogout" Margin="10, 0, 10, 2" TextDecorations="Underline" Cursor="Hand" HorizontalAlignment="Center" >
+            <Hyperlink Foreground="Red" Click="Hyperlink_Click" >Odjavi se</Hyperlink>
+                </TextBlock>
+            </StackPanel>
+
+            <ContentControl x:Name="contentPanel"></ContentControl>
+
+        </DockPanel>
+
+    </Grid>
+</Window>

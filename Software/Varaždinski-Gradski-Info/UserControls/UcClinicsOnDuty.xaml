@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="Varaždinski_Gradski_Info.UserControls.UcClinicsOnDuty"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="White">
+    <Grid Background="#F4F6F9" Margin="20">
+        <StackPanel>
+           
+            <TextBlock Text="Popis institucija" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       Foreground="#2E3B4E" 
+                       Margin="0,0,0,20" 
+                       TextAlignment="Center" />
+
+        
+            <ItemsControl x:Name="InstitutionsList">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="2" Margin="0,10" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="#E3F2FD" 
+                                CornerRadius="10" 
+                                Padding="15" 
+                                Margin="10" 
+                                BorderBrush="#E0E0E0" 
+                                BorderThickness="1" 
+                                Effect="{DynamicResource ShadowEffect}">
+                            <StackPanel>
+                                
+                                <TextBlock Text="{Binding InstitutionName}" 
+                                           FontSize="18" 
+                                           FontWeight="Bold" 
+                                           Foreground="#3E4A59" 
+                                           Margin="0,0,0,5" />
+
+                               
+                                <TextBlock Text="{Binding Address, StringFormat='Adresa: {0}'}" 
+                                           FontSize="14" 
+                                           Foreground="#4A5568" 
+                                           Margin="0,2,0,0" />
+
+                              
+                                <TextBlock Text="{Binding WorkingHours, StringFormat='Radno vrijeme: {0}'}" 
+                                           FontSize="14" 
+                                           Foreground="#4A5568" 
+                                           Margin="0,2,0,0" />
+
+                               
+                                <TextBlock Text="{Binding PhoneNumber, StringFormat='Kontakt: {0}'}" 
+                                           FontSize="14" 
+                                           Foreground="#4A5568" 
+                                           Margin="0,2,0,0" />
+
+                                
+                                <TextBlock Text="{Binding Description}" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="14" 
+                                           Foreground="#718096" 
+                                           Margin="0,10,0,0" />
+
+                               
+                                <TextBlock Text="{Binding DaysOnDuty, StringFormat='Dežurstvo: {0} dana'}" 
+                                           FontSize="14" 
+                                           FontWeight="Bold" 
+                                           Foreground="#2B6CB0" 
+                                           Margin="0,10,0,0" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </Grid>
+</UserControl>
